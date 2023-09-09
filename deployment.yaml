@@ -18,7 +18,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: rambpm/jenkins:1.0-29
+      - image: rambpm/jenkins:1.0-33
         name: jenkins
         ports:
         - containerPort: 80
