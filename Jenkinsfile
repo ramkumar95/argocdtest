@@ -8,10 +8,5 @@ pipeline {
             }
         }
 
-          stage(build) {
-            steps {
-             cleanWs()
-            }
-        }
     }
 }
