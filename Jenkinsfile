@@ -3,6 +3,9 @@ pipeline {
     environment {
       APP_NAME = "jenkins"
     }
+    parameters {
+        string(name: 'IMAGE_TAG', defaultValue: '', description: 'Docker image tag')
+    }
     stages {
         
         stage ('cleanup')  {
@@ -23,7 +26,7 @@ pipeline {
             steps {
                 sh """
                     cat deployment.yaml
-                    sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
+                    sed -i 's/${APP_NAME}.*/${APP_NAME}:${params.IMAGE_TAG}/g' deployment.yaml
                     cat deployment.yaml
                 """
             }
