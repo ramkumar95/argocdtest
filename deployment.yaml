@@ -19,7 +19,6 @@ spec:
     spec:
       containers:
       - image: rambpm/jenkins:1.0-28
-        name: jenkins:1.0-28
         ports:
         - containerPort: 80
         resources: {}
