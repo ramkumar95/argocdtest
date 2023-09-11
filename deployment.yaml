@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: rambpm/jenkins:1.0-29
+        image: rambpm/jenkins:1.0-30
         ports:
         - containerPort: 80
         resources: {}
