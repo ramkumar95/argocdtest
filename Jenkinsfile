@@ -29,5 +29,19 @@ pipeline {
             }
         }
 
+        stage("Push the changed deployment file to Git") {
+            steps {
+                sh """
+                    git config --global user.name "ram"
+                    git config --global user.email "ram@test.com"
+                    git add deployment.yaml
+                    git commit -m "Updated Deployment Manifest"
+                """
+                withCredentials([gitUsernamePassword(credentialsId: 'ramkumar95', gitToolName: 'Default')]) {
+                    sh "git push https://github.com/ramkumar95/argocdtest/ main"
+                }
+            }
+        }
+
     }
 }
